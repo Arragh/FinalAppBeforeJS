@@ -9,6 +9,6 @@ namespace FinalAppBeforeJS.ViewModels.Main
     public class ReadNewsViewModel
     {
         public IEnumerable<News> News { get; set; }
-        //public Pagination Pagination { get; set; }
+        public Pagination Pagination { get; set; }
     }
 }

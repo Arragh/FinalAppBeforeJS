@@ -1,5 +1,9 @@
 ﻿@model ReadNewsViewModel
 
+@Html.ActionLink("Games", "ReadNews", "Main", new { category = "Games" })
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+@Html.ActionLink("IT-News", "ReadNews", "Main", new { category = "IT-News" })
+
 <table border="1">
     @foreach (var news in Model.News)
     {
@@ -15,7 +19,7 @@
         </tr>
         <tr>
             <td>
-                @*@news.Category.Name*@
+                @news.Category.Name
             </td>
             <td>
                 @news.Date

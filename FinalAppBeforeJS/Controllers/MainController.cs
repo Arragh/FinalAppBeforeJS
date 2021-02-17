@@ -15,17 +15,17 @@ namespace FinalAppBeforeJS.Controllers
         public ViewResult Index() => View();
         public ViewResult ReadNews(string category, int page = 1)
         {
-            int newsPerPage = 5;
+            int newsPerPage = 3;
 
             ReadNewsViewModel model = new ReadNewsViewModel
             {
-                News = repository.News.OrderByDescending(n => n.Date).Skip(newsPerPage * (page - 1)).Take(newsPerPage).Include(n => n.Category),
-                //Pagination = new Pagination
-                //{
-                //    CurrentPage = page,
-                //    ItemsPerPage = newsPerPage,
-                //    TotalItems = category == null ? repository.News.Count() : repository.News.Include(n => n.Category).Where(n => n.Category.Name == category).Count()
-                //}
+                News = repository.News.Where(n => category == null || n.Category.Name == category).OrderByDescending(n => n.Date).Skip(newsPerPage * (page - 1)).Take(newsPerPage).Include(n => n.Category),
+                Pagination = new Pagination
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = newsPerPage,
+                    TotalItems = category == null ? repository.News.Count() : repository.News.Include(n => n.Category).Where(n => n.Category.Name == category).Count()
+                }
             };
             return View(model);
         }
