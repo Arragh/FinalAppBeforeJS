@@ -1,0 +1,30 @@
+﻿@model ReadNewsViewModel
+
+<table border="1">
+    @foreach (var news in Model.News)
+    {
+        <tr>
+            <td colspan="2" bgcolor="green">
+                @news.Title
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @news.Body
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @*@news.Category.Name*@
+            </td>
+            <td>
+                @news.Date
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                ===================================================
+            </td>
+        </tr>
+    }
+</table>

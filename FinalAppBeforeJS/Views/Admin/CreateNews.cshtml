@@ -1,0 +1,19 @@
+﻿@model CreateNewsViewModel
+
+<form asp-action="ProcessNews" method="post">
+    <div>
+        <label asp-for="Title"></label><br />
+        <input type="text" asp-for="Title" /><br />
+        <span asp-validation-for="Title"></span><br />
+    </div>
+    <div>
+        <label asp-for="Body"></label><br />
+        <textarea asp-for="Body"></textarea><br />
+        <span asp-validation-for="Body"></span><br />
+    </div>
+    <div>
+        <label asp-for="CategoryId"></label>
+        <select asp-for="CategoryId" asp-items="@Model.Categories"><option></option></select>
+    </div>
+    <button type="submit">Создать новость</button>
+</form>
