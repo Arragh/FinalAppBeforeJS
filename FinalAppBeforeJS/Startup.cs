@@ -39,6 +39,8 @@ namespace FinalAppBeforeJS
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(null, "{category}/Page{page}", new { controller = "Main", action = "ReadNews" });
+                endpoints.MapControllerRoute(null, "{category}", new { controller = "Main", action = "ReadNews" });
                 endpoints.MapControllerRoute(null, "{controller=Main}/{action=Index}/{id?}");
             });
         }
