@@ -39,6 +39,11 @@ namespace FinalAppBeforeJS
 
             app.UseEndpoints(endpoints =>
             {
+                // Маршруты для корректной работы компоненты пагинации
+                endpoints.MapControllerRoute(null, "{category}/Page{page}", new { controller = "Main", action = "ReadNews" });
+                endpoints.MapControllerRoute(null, "{category}", new { controller = "Main", action = "ReadNews" });
+
+                // Стандартный маршрут
                 endpoints.MapControllerRoute(null, "{controller=Main}/{action=Index}/{id?}");
             });
         }

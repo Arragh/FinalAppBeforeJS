@@ -1,0 +1,19 @@
+﻿@model Pagination
+
+<div>
+    Страницы:
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        if (i != Model.CurrentPage)
+        {
+            string space = " ";
+            @Html.ActionLink(i.ToString(), Model.ActionName, new { page = i })
+            @space
+        }
+        else
+        {
+            string space = i + " ";
+            @space
+        }
+    }
+</div>
