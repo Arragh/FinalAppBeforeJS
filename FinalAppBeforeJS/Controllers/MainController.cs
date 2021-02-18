@@ -22,7 +22,6 @@ namespace FinalAppBeforeJS.Controllers
                 News = repository.News.Where(n => category == null || n.Category.Name == category).OrderByDescending(n => n.Date).Skip(newsPerPage * (page - 1)).Take(newsPerPage).Include(n => n.Category),
                 Pagination = new Pagination
                 {
-                    ActionName = nameof(ReadNews),
                     CurrentPage = page,
                     ItemsPerPage = newsPerPage,
                     TotalItems = category == null ? repository.News.Count() : repository.News.Include(n => n.Category).Where(n => n.Category.Name == category).Count()

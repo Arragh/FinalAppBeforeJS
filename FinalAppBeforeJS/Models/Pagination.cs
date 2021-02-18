@@ -7,7 +7,6 @@ namespace FinalAppBeforeJS.Models
 {
     public class Pagination
     {
-        public string ActionName { get; set; }
         public int TotalItems { get; set; }
         public int ItemsPerPage { get; set; }
         public int CurrentPage { get; set; }
